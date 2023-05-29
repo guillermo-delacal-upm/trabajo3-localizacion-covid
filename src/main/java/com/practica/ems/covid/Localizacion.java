@@ -14,9 +14,9 @@ public class Localizacion {
 
 	public Localizacion() {
 		super();
-		this.lista = new LinkedList<PosicionPersona>();
-	};
-	
+		this.lista = new LinkedList<>();
+	}
+
 	public LinkedList<PosicionPersona> getLista() {
 		return lista;
 	}
@@ -50,7 +50,6 @@ public class Localizacion {
 	}
 	public void delLocalizacion(String documento, String fecha, String hora) throws EmsLocalizationNotFoundException {
 	    int pos=-1;
-	    int i;
 	    /**
 	     *  Busca la localización, sino existe lanza una excepción
 	     */
@@ -100,27 +99,30 @@ public class Localizacion {
 	
 	@SuppressWarnings("unused")
 	private FechaHora parsearFecha (String fecha) {
-		int dia, mes, anio;
+		int dia;
+		int mes;
+		int anio;
 		String[] valores = fecha.split("\\/");
 		dia = Integer.parseInt(valores[0]);
 		mes = Integer.parseInt(valores[1]);
 		anio = Integer.parseInt(valores[2]);
-		FechaHora fechaHora = new FechaHora(dia, mes, anio, 0, 0);
-		return fechaHora;
+		return new FechaHora(dia, mes, anio, 0, 0);
 	}
 	
 	private  FechaHora parsearFecha (String fecha, String hora) {
-		int dia, mes, anio;
+		int dia;
+		int mes;
+		int anio;
 		String[] valores = fecha.split("\\/");
 		dia = Integer.parseInt(valores[0]);
 		mes = Integer.parseInt(valores[1]);
 		anio = Integer.parseInt(valores[2]);
-		int minuto, segundo;
+		int minuto;
+		int segundo;
 		valores = hora.split("\\:");
 		minuto = Integer.parseInt(valores[0]);
 		segundo = Integer.parseInt(valores[1]);
-		FechaHora fechaHora = new FechaHora(dia, mes, anio, minuto, segundo);
-		return fechaHora;
+		return new FechaHora(dia, mes, anio, minuto, segundo);
 	}
 	
 }

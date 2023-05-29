@@ -14,7 +14,7 @@ public class Poblacion {
 
 	public Poblacion() {
 		super();
-		this.lista = new LinkedList<Persona>();
+		this.lista = new LinkedList<>();
 	}
 	
 	public LinkedList<Persona> getLista() {
